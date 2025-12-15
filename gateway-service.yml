@@ -4,54 +4,46 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: interview-service
-          uri: lb://INTERVIEW-SERVICE
-          predicates:
-            - Path=/interview-service/**
-          filters:
-            - StripPrefix=1
-
-        - id: ai-service
-          uri: lb://AI-SERVICE
-          predicates:
-            - Path=/ai-service/**
-          filters:
-            - StripPrefix=1
-
-        - id: auth-service
-          uri: lb://AUTH-SERVICE
-          predicates:
-            - Path=/auth-service/**
-          filters:
-            - StripPrefix=1
-
-        - id: application-service
-          uri: lb://APPLICATION-SERVICE
-          predicates:
-            - Path=/application-service/**
-          filters:
-            - StripPrefix=1
-
-        - id: joboffer-service
-          uri: lb://JOBOFFER-SERVICE
-          predicates:
-            - Path=/joboffer-service/**
-          filters:
-            - StripPrefix=1
-
-        - id: career-advice
-          uri: lb://CAREER-ADVICE
-          predicates:
-            - Path=/career-advice/**
-          filters:
-            - StripPrefix=1
-
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
-
       server:
         webflux:
+          routes:
+            - id: interview-service
+              uri: lb://INTERVIEW-SERVICE
+              predicates:
+                - Path=/interview-service/**
+              filters:
+                - StripPrefix=1
+            - id: ai-service
+              uri: lb://AI-SERVICE
+              predicates:
+                - Path=/ai-service/**
+              filters:
+                - StripPrefix=1
+            - id: auth-service
+              uri: lb://AUTH-SERVICE
+              predicates:
+                - Path=/auth-service/**
+              filters:
+                - StripPrefix=1
+            - id: application-service
+              uri: lb://APPLICATION-SERVICE
+              predicates:
+                - Path=/application-service/**
+              filters:
+                - StripPrefix=1
+            - id: joboffer-service
+              uri: lb://JOBOFFER-SERVICE
+              predicates:
+                - Path=/joboffer-service/**
+              filters:
+                - StripPrefix=1
+            - id: career-advice
+              uri: lb://CAREER-ADVICE
+              predicates:
+                - Path=/career-advice/**
+              filters:
+                - StripPrefix=1
+
           discovery:
             locator:
               enabled: true
