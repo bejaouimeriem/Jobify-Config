@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: application-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: application_db
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+      location: ${java.io.tmpdir}
+
+server:
+  port: 8083
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+
+jobseeker:
+  service:
+    url: http://localhost:8081
+
+joboffer:
+  service:
+    url: http://localhost:8082
+
+cv:
+  upload:
+    dir: uploads/cvs
+
+logging:
+  level:
+    com.application.applicationservice: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    com.application.applicationservice.client: DEBUG
